@@ -3,20 +3,20 @@
 #include <netinet/in.h>
 
 
-int main(int argc, char **agrv)
+int main(int argc, char **argv)
 {
  int max=3000, s,i,ret;
  struct sockaddr_in serv;
 
- s=socket(AF_INET, SOCK_STRAM, 0)
+ s=socket(AF_INET, SOCK_STREAM, 0);
  if(s < 0)
  {
   printf("Socket failed \n");
   return -1;
  }
  
- serv.sin_addr.s_add = inet_addr(argv[1]);
- serv.sin_family = AF_INET
+ serv.sin_addr.s_addr = inet_addr(argv[1]);
+ serv.sin_family = AF_INET;
 
  for(i = 0; i < max; i++)
  {
@@ -29,7 +29,6 @@ int main(int argc, char **agrv)
 
  }
  close(s);
- printf("Helow World\n");
  return 0;
 }
 
